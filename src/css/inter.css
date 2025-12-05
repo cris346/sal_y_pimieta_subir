@@ -1,0 +1,64 @@
+/* src/css/inter.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #b9bbbd;
+    color: #353232;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrar verticalmente */
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+}
+
+.container {
+    /* ELIMINAMOS display: none; PARA QUE SIEMPRE SE VEA */
+    background-color: rgb(183, 174, 174);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(16, 16, 16, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 { color: #2c3e50; text-align: center; margin-bottom: 5px; }
+h2 { color: #7f8c8d; text-align: center; font-size: 1.2rem; margin-bottom: 30px; font-weight: 400; }
+.error-msg { color: red; text-align: center; display: none; margin-bottom: 10px; background: #ffdede; padding: 10px; border-radius: 5px;}
+
+/* Inputs y Formularios */
+.form-group { margin-bottom: 20px; }
+.form-row { display: flex; gap: 15px; }
+.form-row .form-group { flex: 1; }
+label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.95rem; }
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], textarea {
+    width: 100%; padding: 10px; border: 1px solid #949393;
+    border-radius: 5px; box-sizing: border-box; font-size: 1rem; font-family: inherit;
+}
+
+/* Botones */
+.btn-submit {
+    display: block; width: 100%; padding: 15px;
+    background-color: #27ae60; color: white; border: none;
+    border-radius: 5px; font-size: 1.1rem; cursor: pointer;
+    font-weight: bold; transition: background-color 0.3s; margin-top: 20px;
+}
+.btn-submit:hover { background-color: #219150; }
+.btn-submit:disabled { background-color: #95a5a6; cursor: not-allowed; }
+
+/* Cloudinary Button */
+.btn-cloudinary {
+    display: block; background-color: #34495e; color: white;
+    padding: 10px; text-align: center; border-radius: 5px; text-decoration: none; margin-bottom: 10px;
+}
+
+/* Checkboxes */
+.checkbox-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 5px; }
+.tag-selector input[type="checkbox"] { display: none; }
+.tag-selector span {
+    display: inline-block; padding: 10px 20px; background-color: #f0f2f5;
+    border: 1px solid #d1d1d1; border-radius: 20px; cursor: pointer; user-select: none;
+}
+.tag-selector input[type="checkbox"]:checked + span {
+    background-color: #1ab85c; color: white; border-color: #1ab85c;
+}
