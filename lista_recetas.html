@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Recetas - Sal y Pimienta</title>
+    <link rel="stylesheet" href="src/css/inter.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+            "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+            "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+            "firebase/analytics": "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js"
+        }
+    }
+    </script>
+    <style>
+        /* Estilos específicos para la lista */
+        .grid-recetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .card h3 { margin: 10px 0 5px 0; color: #2c3e50; font-size: 1.1rem; }
+        .card p { font-size: 0.9rem; color: #666; flex-grow: 1; }
+        .actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        .btn-edit { background: #f39c12; color: white; padding: 5px 10px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; text-align: center; flex: 1;}
+        .btn-delete { background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; flex: 1;}
+        .top-bar { display: flex; justify-content: space-between; align-items: center; }
+        .btn-new { background: #27ae60; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 900px;">
+        <div class="top-bar">
+            <h1>Mis Recetas</h1>
+            <a href="formulario.html" class="btn-new">+ Nueva Receta</a>
+        </div>
+        
+        <div id="listaRecetas" class="grid-recetas">
+            <p style="text-align:center; width:100%">Cargando recetas...</p>
+        </div>
+
+        <button id="btnLogout" style="background: #7f8c8d; margin-top: 30px; padding: 10px; border: none; color: white; border-radius: 4px; cursor: pointer; width: 100%;">
+            Cerrar Sesión
+        </button>
+    </div>
+
+    <script type="module" src="src/js/ver_recetas.js"></script>
+</body>
+</html>

@@ -1,6 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// Agregamos Auth y Firestore
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -16,8 +14,17 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-// Exportamos los servicios para usarlos en otros archivos
+// Inicializar Analytics de forma segura
+let analytics = null;
+try {
+  const { getAnalytics } = await import("firebase/analytics");
+  analytics = getAnalytics(app);
+  console.log("✅ Firebase Analytics inicializado");
+} catch (error) {
+  console.log("ℹ️ Analytics no disponible (opcional)");
+}
+
+// Exportamos los servicios
 export const auth = getAuth(app);
 export const db = getFirestore(app);

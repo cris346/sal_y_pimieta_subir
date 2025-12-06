@@ -1,10 +1,10 @@
-import { auth } from '../../firebase.js';
+import { auth } from './firebase.js';
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 const loginForm = document.getElementById('loginForm');
 const errorMsg = document.getElementById('mensajeError');
 
-// Si el usuario ya está logueado, lo mandamos directo al formulario
+// Si el usuario ya está logueado, lo mandamos al formulario
 onAuthStateChanged(auth, (user) => {
     if (user) {
         window.location.href = "formulario.html";
@@ -24,7 +24,7 @@ loginForm.addEventListener('submit', async (e) => {
 
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        // No necesitamos redirigir aquí manualmente, el onAuthStateChanged de arriba lo hará
+        // El onAuthStateChanged redirigirá automáticamente
     } catch (error) {
         console.error(error);
         errorMsg.style.display = 'block';
